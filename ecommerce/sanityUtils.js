@@ -15,7 +15,6 @@ export const client = createClient({
 const builder = imageUrlBuilder(client)
 
 export const urlFor = (source) => builder.image(source)
-
 export async function getProducts() {
   const query = '*[_type == "product"]'
   const products = await client.fetch(query)
@@ -25,5 +24,5 @@ export async function getProducts() {
 export async function getBanner() {
   const query = '*[_type == "banner"]'
   const banner = await client.fetch(query)
-  return banner
+  return banner[0]
 }

@@ -3,11 +3,10 @@ import styles from "./page.module.css";
 
 import React from "react";
 import { HeroBanner, Footer, Product } from "./Components";
-import { getBanner, getProducts } from "../../ecommerce/sanityUtils";
+import { getProducts } from "../../ecommerce/sanityUtils";
 
 async function Home() {
   const products = await getProducts();
-  console.log(products);
   return (
     <>
       <HeroBanner />
