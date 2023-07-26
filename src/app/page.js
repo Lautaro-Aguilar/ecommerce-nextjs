@@ -3,8 +3,11 @@ import styles from "./page.module.css";
 
 import React from "react";
 import { HeroBanner, Footer, Product } from "./Components";
+import { getBanner, getProducts } from "../../ecommerce/sanityUtils";
 
-const Home = () => {
+async function Home() {
+  const products = await getProducts();
+  console.log(products);
   return (
     <>
       <HeroBanner />
@@ -13,11 +16,11 @@ const Home = () => {
         <p>Speakers of many variations</p>
       </div>
       <div className='products-container'>
-        {["Product 1", "Product 2"].map((product) => product)}
+        {products?.map((product) => product.name)}
       </div>
       <Footer />
     </>
   );
-};
+}
 
 export default Home;
