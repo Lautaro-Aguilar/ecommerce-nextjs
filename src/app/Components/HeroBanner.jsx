@@ -3,27 +3,36 @@ import Link from "next/link";
 
 import { getBanner, urlFor } from "../../../ecommerce/sanityUtils";
 
-const HeroBanner = async () => {
-  const heroBanner = await getBanner();
+const HeroBanner = async ({
+  heroBanner: {
+    smallText,
+    midText,
+    largeText1,
+    image,
+    desc,
+    product,
+    buttonText,
+  },
+}) => {
   return (
     <div className='hero-banner-container'>
       <div>
-        <p className='beats-solo'>{heroBanner.smallText}</p>
-        <h3>{heroBanner.midText}</h3>
-        <h1>{heroBanner.largeText1}</h1>
+        <p className='beats-solo'>{smallText}</p>
+        <h3>{midText}</h3>
+        <h1>{largeText1}</h1>
         <img
-          src={urlFor(heroBanner.image).url()}
+          src={urlFor(image).url()}
           alt='headphones'
           className='hero-banner-image'
         />
 
         <div>
-          <Link href={`/product/${heroBanner.product}`}>
-            <button type='button'>{heroBanner.buttonText}</button>
+          <Link href={`/product/${product}`}>
+            <button type='button'>{buttonText}</button>
           </Link>
           <div className='desc'>
             <h5>Description</h5>
-            <p>{heroBanner.desc}</p>
+            <p>{desc}</p>
           </div>
         </div>
       </div>
