@@ -5,7 +5,7 @@ import { getProducts, urlFor } from "../../../ecommerce/sanityUtils";
 const Product = async ({ product: { image, name, slug, price } }) => {
   return (
     <div>
-      <Link href={`product/${slug.current}`}>
+      <Link href={`/product/${slug.current}`}>
         <div className='product-card'>
           <img
             src={urlFor(image && image[0]).url()}
