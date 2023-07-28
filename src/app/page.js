@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -16,9 +17,9 @@ async function Home() {
         <p>Speakers of many variations</p>
       </div>
       <div className='products-container'>
-        {products?.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {products?.map((product) => {
+          return <Product key={product._id} product={product} />;
+        })}
       </div>
       <FooterBanner footerBanner={bannerData} />
     </>
