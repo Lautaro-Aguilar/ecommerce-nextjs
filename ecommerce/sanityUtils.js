@@ -26,3 +26,13 @@ export async function getBanner() {
   const banner = await client.fetch(query)
   return banner[0]
 }
+
+export async function getProduct({slug}) {
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`
+  const productsQuery = '*[_type == "product"]'
+
+  const product = await client.fetch(query)
+  const products = await client.fetch(productsQuery)
+
+  return {product, products}
+}
