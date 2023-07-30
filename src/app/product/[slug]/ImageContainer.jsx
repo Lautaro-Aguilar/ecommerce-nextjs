@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { urlFor } from "../../../../ecommerce/sanityUtils";
 
 const ImageContainer = (image) => {
-  console.log(image);
   const [index, setIndex] = useState(0);
   return (
     <div>
