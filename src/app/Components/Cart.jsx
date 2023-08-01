@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef } from "react";
-import { useStateContext } from "../../../ecommerce/context/StateContext";
+import { useStateContext } from "../context/StateContext";
 import {
   AiOutlineLeft,
   AiOutlineMinus,
@@ -27,7 +27,7 @@ const Cart = () => {
   const handleCheckout = async () => {
     const stripe = await getStripe();
 
-    const response = await fetch("/api", {
+    const response = await fetch("../../api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

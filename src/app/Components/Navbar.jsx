@@ -3,14 +3,14 @@ import Link from "next/link";
 import React from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { Cart } from ".";
-import { useStateContext } from "../../../ecommerce/context/StateContext";
+import { useStateContext } from "../context/StateContext";
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
   return (
     <div className='navbar-container'>
       <p className='logo'>
-        <Link href='/'></Link>Headphones
+        <Link href='/'>Headphones</Link>
       </p>
 
       <button

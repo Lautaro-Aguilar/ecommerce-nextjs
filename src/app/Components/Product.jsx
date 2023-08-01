@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { getProducts, urlFor } from "../../../ecommerce/sanityUtils";
+import {urlFor } from "../../../ecommerce/sanityUtils";
 
 const Product = async ({ product: { image, name, slug, price } }) => {
   return (

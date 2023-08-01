@@ -1,10 +1,7 @@
 import "./styles/globals.css";
-import { Inter } from "next/font/google";
-import { Footer, Navbar } from "./Components";
-import { StateContext } from "../../ecommerce/context/StateContext";
+import { Footer, Navbar } from "./components";
+import { StateContext } from "./context/StateContext";
 import { Toaster } from "react-hot-toast";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

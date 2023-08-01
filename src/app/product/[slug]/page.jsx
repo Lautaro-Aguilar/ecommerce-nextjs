@@ -1,12 +1,6 @@
 import React from "react";
 import { getProduct } from "../../../../ecommerce/sanityUtils";
-import { Product } from "@/app/Components";
-import {
-  AiFillStar,
-  AiOutlineMinus,
-  AiOutlinePlus,
-  AiOutlineStar,
-} from "react-icons/ai";
+import { Product } from "@/app/components";
 import ImageContainer from "./ImageContainer";
 import ProductDetailDesc from "./ProductDetailDesc";
 

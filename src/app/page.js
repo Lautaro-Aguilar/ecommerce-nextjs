@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import React from "react";
-import { HeroBanner, Footer, Product, FooterBanner } from "./Components";
+import { HeroBanner, Footer, Product, FooterBanner } from "./components";
 import { getBanner, getProducts } from "../../ecommerce/sanityUtils";
 
 async function Home() {

@@ -1,18 +1,38 @@
 'use client'
-import React, {createContext, useContext, useState} from 'react'
+import React, {createContext, useContext, useState, useEffect} from 'react'
 import {toast} from 'react-hot-toast'
 
 const Context = createContext()
 
+// eslint-disable-next-line react/prop-types
 export const StateContext = ({children}) => {
   const [showCart, setShowCart] = useState(false)
-  const [cartItems, setCartItems] = useState([])
+  const [cartItems, setCartItems] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const savedCart = localStorage.getItem('carrito')
+      if (savedCart) { 
+        return JSON.parse(savedCart)
+      } else {
+        return []
+      }
+    }
+  })
   const [totalPrice, setTotalPrice] = useState(0)
   const [totalQuantities, setTotalQuantities] = useState(0)
   const [qty, setQty] = useState(1)
 
   let foundProduct
+  // eslint-disable-next-line no-unused-vars
   let index
+
+  useEffect(() => {
+    localStorage.setItem('carrito', JSON.stringify(cartItems))
+    const totalQuantities = cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+
+    setTotalQuantities(totalQuantities)
+    setTotalPrice(totalPrice)
+  }, [cartItems])
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id)
@@ -34,7 +54,6 @@ export const StateContext = ({children}) => {
 
       setCartItems([...cartItems, {...product}])
     }
-
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
@@ -77,6 +96,7 @@ export const StateContext = ({children}) => {
       value={{
         showCart,
         cartItems,
+        setCartItems,
         totalPrice,
         totalQuantities,
         qty,
@@ -86,6 +106,8 @@ export const StateContext = ({children}) => {
         setShowCart,
         toggleCartItemQuanitity,
         onRemove,
+        setTotalPrice,
+        setTotalQuantities
       }}
     >
       {children}

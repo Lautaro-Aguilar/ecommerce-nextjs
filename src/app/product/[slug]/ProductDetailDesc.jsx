@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useStateContext } from "../../../../ecommerce/context/StateContext";
+import { useStateContext } from "../../context/StateContext";
 import {
   AiFillStar,
   AiOutlineMinus,
@@ -9,7 +9,11 @@ import {
 } from "react-icons/ai";
 
 const ProductDetailDesc = ({ product, name, price, details }) => {
-  const { qty, decQty, incQty, onAdd, onRemove } = useStateContext();
+  const { qty, decQty, incQty, onAdd, setShowCart} = useStateContext();
+  const handleBuyNow = () => {
+    onAdd(product, qty)
+    setShowCart(true)
+  }
   return (
     <div className='product-detail-desc'>
       <h1>{name}</h1>
@@ -46,7 +50,7 @@ const ProductDetailDesc = ({ product, name, price, details }) => {
         >
           Add to Cart
         </button>
-        <button type='button' className='buy-now' /* onClick={handleBuyNow} */>
+        <button type='button' className='buy-now' onClick={handleBuyNow}>
           Buy Now
         </button>
       </div>
