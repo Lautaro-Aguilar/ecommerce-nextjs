@@ -1,8 +1,8 @@
 import React from "react";
 import { getProduct } from "../../../../ecommerce/sanityUtils";
-import { Product } from "../../components/Product";
 import ImageContainer from "./ImageContainer";
 import ProductDetailDesc from "./ProductDetailDesc";
+import { Product } from "@/app/components";
 
 async function Slug({ params }) {
   const { product, products } = await getProduct({ slug: params.slug });

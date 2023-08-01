@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { getBanner, getProducts } from "../../ecommerce/sanityUtils";
-import { FooterBanner } from "./components/FooterBanner";
-import { HeroBanner } from "./components/HeroBanner";
-import { Product } from "./components/Product";
+import { FooterBanner, HeroBanner } from "./components";
+import Product from "../../ecommerce/schemas/product";
+
 
 async function Home() {
   const products = await getProducts();
