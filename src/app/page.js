@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
 import { getBanner, getProducts } from "../../ecommerce/sanityUtils";
 import { FooterBanner, HeroBanner } from "./components";
-import Product from "../../ecommerce/schemas/product";
+import Product from "./components/Product";
 
 
 async function Home() {
