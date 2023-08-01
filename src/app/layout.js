@@ -1,5 +1,5 @@
 import "./styles/globals.css";
-import { Footer, Navbar } from "./components";
+import { Footer, Navbar } from "./components/index";
 import { StateContext } from "./context/StateContext";
 import { Toaster } from "react-hot-toast";
 
