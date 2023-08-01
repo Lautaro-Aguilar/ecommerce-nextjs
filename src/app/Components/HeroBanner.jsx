@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { getBanner, urlFor } from "../../../ecommerce/sanityUtils";
+import { urlFor } from "../../../ecommerce/sanityUtils";
 
 const HeroBanner = async ({
   heroBanner: {
