@@ -1,6 +1,6 @@
 import React from "react";
 import { getProduct } from "../../../../ecommerce/sanityUtils";
-import { Product } from "@/app/components";
+import { Product } from "../../components/Product";
 import ImageContainer from "./ImageContainer";
 import ProductDetailDesc from "./ProductDetailDesc";
 
